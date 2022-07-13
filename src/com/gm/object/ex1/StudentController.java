@@ -10,9 +10,12 @@ public class StudentController {
 	// System.out.println("4. 학생 정보 삭제");
 	// System.out.println("5. 학생 정보 추가");
 	// System.out.println("6. 프로그램 종료");
-
 	public void menu() {
 		Scanner sc = new Scanner(System.in);
+		StudentService ss = new StudentService();
+		StudentView sv = new StudentView();
+		Student[] students = null;
+		
 		boolean check = true;
 
 		while (check) {
@@ -20,23 +23,31 @@ public class StudentController {
 			int select = sc.nextInt();
 
 			switch (select) {
-			case 1:
-				System.out.println("학생 정보 입력");
+			case 1: // StudentService
+				System.out.println("=====학생 정보 입력=====");
+				students = ss.makeStudent();
 				break;
-			case 2:
-				System.out.println("학생 정보 조회");
+			case 2: // StudentView
+				System.out.println("=====학생 정보 조회=====");
+				sv.viewAll(students);
 				break;
 			case 3:
-				System.out.println("학생 정보 검색");
+				System.out.println("=====학생 정보 검색=====");
+				Student student = ss.findStudent(students);
+				if(student != null) {
+					sv.viewOne(student);
+				} else {
+					sv.viewMessage("검색하신 번호의 학생이 없습니다.");
+				}
 				break;
 			case 4:
-				System.out.println("학생 정보 삭제");
+				System.out.println("=====학생 정보 삭제=====");
 				break;
 			case 5:
-				System.out.println("학생 정보 추가");
+				System.out.println("=====학생 정보 추가=====");
 				break;
 			case 6:
-				System.out.println("학생 정보 종료");
+				System.out.println("=====프로그램 종료=====");
 				check = !check;
 
 			}
