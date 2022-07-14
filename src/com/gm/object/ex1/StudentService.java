@@ -9,12 +9,19 @@ public class StudentService {
 		sc = new Scanner(System.in);
 	}
 	
+	// removeStudent
+	// 학생들의 정보를 받아서,
+	// 삭제하려는 학생의 번호를 입력 받음
+	// 학생의 번호와 일치하는 학생의 정보을 삭제
+	// 남은 학생들의 정보를 리턴
+	
 	// addStudent
 	// 학생들의 정보를 받아서,
 	// 학생 한 명 추가
 	// 학생 정보들을 리턴
 	public void addStudent() {
 		Student student = null;
+		
 		
 		
 	}
@@ -32,7 +39,7 @@ public class StudentService {
 		int fs = sc.nextInt();
 
 		for (int i = 0; i < students.length; i++) {
-			if (fs == students[i].number) {
+			if (fs == students[i].getNumber()) {
 				student = students[i];
 				break;
 			}
@@ -55,15 +62,15 @@ public class StudentService {
 		for (int i = 0; i < students.length; i++) {
 			Student student = new Student();
 			System.out.println(i + 1 + "번째 학생 이름");
-			student.name = sc.next();
-			System.out.println(student.name + " - 번호");
-			student.number = sc.nextInt();
-			System.out.println(student.name + " - 국어 점수");
-			student.kor = sc.nextInt();
-			System.out.println(student.name + " - 수학 점수");
-			student.math = sc.nextInt();
-			System.out.println(student.name + " - 영어 점수");
-			student.eng = sc.nextInt();
+			student.setName(sc.next());
+			System.out.println(" - 번호");
+			student.setNumber(sc.nextInt());
+			System.out.println(" - 국어 점수");
+			student.setKor(sc.nextInt());
+			System.out.println(" - 수학 점수");
+			student.setMath(sc.nextInt());
+			System.out.println(" - 영어 점수");
+			student.setEng(sc.nextInt());
 			student.setTotal();
 			
 			students[i] = student;
