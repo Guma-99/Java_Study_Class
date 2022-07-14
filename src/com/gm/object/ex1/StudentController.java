@@ -3,6 +3,15 @@ package com.gm.object.ex1;
 import java.util.Scanner;
 
 public class StudentController {
+	
+	StudentView sv;
+	StudentService studentService;
+	Student[] students;
+	
+	public StudentController() {
+		sv = new StudentView();
+		studentService = new StudentService();
+	}
 	// start 메서드 선언
 	// System.out.println("1. 학생 정보 입력");
 	// System.out.println("2. 학생 정보 조회");

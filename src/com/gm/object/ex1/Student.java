@@ -8,4 +8,13 @@ public class Student {
 	int eng; // 영어 점수
 	int total; // 총점
 	double avgs; // 평균
+	
+	public void setTotal() {
+		this.total = this.kor + this.math + this.eng;
+		this.setAvg();
+	}
+	
+	public void setAvg() {
+		 this.avgs = this.total / 3.0;
+	}
 }

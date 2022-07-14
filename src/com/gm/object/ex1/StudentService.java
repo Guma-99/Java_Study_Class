@@ -3,13 +3,29 @@ package com.gm.object.ex1;
 import java.util.Scanner;
 
 public class StudentService {
-
+	Scanner sc;
+	
+	public StudentService() {
+		sc = new Scanner(System.in);
+	}
+	
+	// addStudent
+	// 학생들의 정보를 받아서,
+	// 학생 한 명 추가
+	// 학생 정보들을 리턴
+	public void addStudent() {
+		Student student = null;
+		
+		
+	}
+	
+	
 	// findStudent
 	// 검색하고 싶은 학생의 번호를 입력
 	// 같은 번호의 학생 찾아서 학생 한 명을 리턴
 	// 없으면 null 리턴
 	public Student findStudent(Student[] students) {
-		Scanner sc = new Scanner(System.in);
+		
 		Student student = null; // 리턴하려는 학생 데이터
 
 		System.out.println("검색할 학생 번호 입력");
@@ -28,9 +44,8 @@ public class StudentService {
 	// 학생 수를 입력 받고,
 	// 학생 수만큼 정보 입력 받고,
 	// 학생들을 리턴
-
 	public Student[] makeStudent() {
-		Scanner sc = new Scanner(System.in);
+																																																																																																				
 		// Student stu= new Student();
 
 		System.out.println("학생 수 입력");
@@ -49,8 +64,8 @@ public class StudentService {
 			student.math = sc.nextInt();
 			System.out.println(student.name + " - 영어 점수");
 			student.eng = sc.nextInt();
-			student.total = student.kor + student.math + student.eng;
-			student.avgs = student.total / 3.0;
+			student.setTotal();
+			
 			students[i] = student;
 
 			System.out.println("=====입력 완료=====");
